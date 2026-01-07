@@ -57,7 +57,7 @@ const App: React.FC = () => {
           </div>
           
           <div className="flex items-center gap-4">
-            <div className={`hidden md:flex items-center gap-2 px-4 py-1.5 rounded-full border-2 ${
+            <div className={`hidden md:flex items-center gap-2 px-4 py-1.5 rounded-full border-2 transition-all ${
               !loading && !error ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : 
               error ? 'bg-red-50 text-red-700 border-red-100' : 'bg-slate-50 text-slate-400 border-slate-200'
             }`}>
@@ -74,7 +74,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-1 max-w-[1400px] mx-auto px-6 py-10 w-full">
-        <div className="flex justify-center gap-2 p-1.5 bg-slate-200/40 rounded-full w-fit mx-auto backdrop-blur-xl border border-white/60 mb-12">
+        <div className="flex justify-center gap-2 p-1.5 bg-slate-200/40 rounded-full w-fit mx-auto backdrop-blur-xl border border-white/60 mb-12 shadow-sm">
           <button onClick={() => setViewMode('search')} className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${viewMode === 'search' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-500'}`}>Explore</button>
           <button onClick={() => setViewMode('all')} className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${viewMode === 'all' ? 'bg-white text-slate-900 shadow-md' : 'text-slate-500'}`}>Database</button>
         </div>
@@ -95,7 +95,11 @@ const App: React.FC = () => {
             )}
           </div>
         ) : (
-          <DataTable data={dataset} onSelect={(item: DataRow) => { handleSelect(item); setViewMode('search'); }} activeId={activeResult?.match.columnA} />
+          <DataTable 
+            data={dataset} 
+            onSelect={(item: DataRow) => { handleSelect(item); setViewMode('search'); }} 
+            activeId={activeResult?.match.columnA} 
+          />
         )}
       </main>
     </div>

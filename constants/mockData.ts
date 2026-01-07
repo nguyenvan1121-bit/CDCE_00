@@ -1,10 +1,5 @@
-import { DataRow } from '../types.ts';
+import { DataRow } from '../types';
 
-/**
- * Mocking the structure of the provided spreadsheet.
- * Column B is the "Lookup key" (e.g., Symptom, Error, Item Name).
- * Column D is the "Target result" (e.g., Remedy, Fix, Description).
- */
 export const MOCK_DATASET: DataRow[] = [
   { columnA: "1", columnB: "Fever and headache", columnC: "Health", columnD: "Rest, hydration, and paracetamol. Consult a doctor if symptoms persist." },
   { columnA: "2", columnB: "Error 404", columnC: "Tech", columnD: "Page not found. Check the URL or server configuration." },
